@@ -24,9 +24,9 @@ export default function Navbar() {
 
         {/* Desktop Nav Links (hidden on mobile) */}
         <div className="hidden md:flex md:gap-5 md:text-md font-semibold">
-          <Link href="/about">About</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/contact">Contact</Link>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
         </div>
 
         {/* Desktop Buttons (hidden on mobile) */}
@@ -44,9 +44,9 @@ export default function Navbar() {
         } md:hidden`}
       >
         <nav className="flex flex-col p-6 gap-6">
-          <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
-          <Link href="/projects" onClick={() => setMenuOpen(false)}>Projects</Link>
-          <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
         </nav>
       </div>
 

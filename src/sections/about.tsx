@@ -31,7 +31,7 @@ const experienceItems = [
 
 export default function AboutSection() {
   return (
-    <div className="flex flex-col min-h-[600px] md:min-h-[1000px] bg-[#E3E3FF] border-b-2 border-black">
+    <div id='about' className="flex flex-col min-h-[600px] md:min-h-[1000px] bg-[#E3E3FF] border-b-2 border-black">
       <div className="p-4 md:p-6 lg:p-12 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 items-center">
         
         {/* Left Column - Image */}

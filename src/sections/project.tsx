@@ -37,7 +37,7 @@ const projects = [
 
 export default function ProjectSection() {
   return (
-    <div className="flex flex-col items-center space-y-3 min-h-[640px] md:min-h-[690px]">
+    <div id='projects' className="flex flex-col items-center space-y-3 min-h-[640px] md:min-h-[690px]">
       <div className="p-4 md:p-6 lg:p-12 w-full max-w-7xl">
         <div className="flex justify-center">
           <CircleButton label="My Projects" />
