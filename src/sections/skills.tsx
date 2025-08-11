@@ -1,3 +1,5 @@
+"use client"
+
 import { CircleButton } from '@/components/circle-button';
 import { SkillCard } from '@/components/skill-card';
 import React from 'react';

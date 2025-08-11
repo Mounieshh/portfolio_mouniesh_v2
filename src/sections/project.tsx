@@ -1,8 +1,12 @@
+"use client"
+
 import { ButtonC } from '@/components/button-icon';
 import { CircleButton } from '@/components/circle-button';
 import { ProjectCard } from '@/components/project-card';
 import React from 'react';
 import { AiOutlineArrowDown } from 'react-icons/ai';
+
+import {motion} from 'framer-motion'
 
 const projects = [
   {
@@ -37,7 +41,14 @@ const projects = [
 
 export default function ProjectSection() {
   return (
-    <div id='projects' className="flex flex-col items-center space-y-3 min-h-[640px] md:min-h-[690px]">
+    <motion.div 
+    id='projects' 
+    className="flex flex-col items-center space-y-3 min-h-[640px] md:min-h-[690px]"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }} // triggers when 20% of the section is visible
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="p-4 md:p-6 lg:p-12 w-full max-w-7xl">
         <div className="flex justify-center">
           <CircleButton label="My Projects" />
@@ -57,6 +68,6 @@ export default function ProjectSection() {
                   <div className='mt-20'>
                     <AiOutlineArrowDown className='w-10 h-10'/>
                   </div>
-    </div>
+    </motion.div>
   );
 }

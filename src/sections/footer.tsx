@@ -16,14 +16,14 @@ export default function FooterSection() {
       </div>
       <div className='flex flex-col space-y-5 items-start md:items-end'>
         <div className='flex gap-4 font-semibold'>
-            <Link href="#">About</Link>
-            <Link href="#">Projects</Link>
-            <Link href="#">Contact</Link>
+            <Link href="#about">About</Link>
+            <Link href="#projects">Projects</Link>
+            <Link href="#contact">Contact</Link>
         </div>
         <div className='flex gap-4'>
-            <ButtonC icon={<FaLinkedin />} variant="outline" size='sm' />
-            <ButtonC icon={<FaGithub />} variant="outline" size='sm'/>
-            <ButtonC icon={<FaTwitter />} variant="outline" size='sm'/>
+            <ButtonC icon={<FaLinkedin />} variant="outline" size='sm' href="https://www.linkedin.com/in/mouniesh-vijayakumar-2447a2256/" />
+            <ButtonC icon={<FaGithub />} variant="outline" size='sm' href="https://github.com/Mounieshh"/>
+            <ButtonC icon={<FaTwitter />} variant="outline" size='sm'href="https://x.com/Mounieshv"/>
         </div>
       </div>
     </div>

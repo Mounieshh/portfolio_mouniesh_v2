@@ -1,3 +1,5 @@
+"use client"
+
 import { ButtonC } from '@/components/button-icon'
 import { CircleButton } from '@/components/circle-button'
 import TextPressure from '@/components/text-pressure'
@@ -6,9 +8,16 @@ import TextTrail from '@/components/trail-text'
 import Image from 'next/image'
 import React from 'react'
 
+import { motion } from 'framer-motion'
+
 export default function HeroSection() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#E3E3FF] border-b-2 border-black">
+    <motion.div 
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }} // triggers when 20% of the section is visible
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    className="flex flex-col min-h-screen bg-[#E3E3FF] border-b-2 border-black">
 
       {/* Content Part */}
       <div className="p-6 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -70,8 +79,8 @@ export default function HeroSection() {
             </div>
 
             <div className='flex gap-4'>
-                <ButtonC label="Resume" variant="outline" />
-                <ButtonC label="See my Works" variant="outline" />
+                <ButtonC label="Resume" variant="outline" href="https://drive.google.com/file/d/1J3Q2tEfCg6r-Tg4gy218UPX8KPeIV2am/view?usp=drive_link" />
+                <ButtonC label="See my Works" variant="outline" href="https://github.com/Mounieshh" />
             </div>
             </div>
 
@@ -87,6 +96,6 @@ export default function HeroSection() {
             </div>
             </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

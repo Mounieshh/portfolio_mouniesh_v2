@@ -1,9 +1,13 @@
+"use client"
+
 import { CircleButton } from '@/components/circle-button';
 import React from 'react';
 import Image from 'next/image';
 import { Timeline } from '@/components/timeline';
 import { ButtonC } from '@/components/button-icon';
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+
+import {motion} from 'framer-motion'
 
 const experienceItems = [
   {
@@ -31,7 +35,15 @@ const experienceItems = [
 
 export default function AboutSection() {
   return (
-    <div id='about' className="flex flex-col min-h-[600px] md:min-h-[1000px] bg-[#E3E3FF] border-b-2 border-black">
+    <motion.div 
+    
+    id='about' 
+    className="flex flex-col min-h-[600px] md:min-h-[1000px] bg-[#E3E3FF] border-b-2 border-black"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }} // triggers when 20% of the section is visible
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="p-4 md:p-6 lg:p-12 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 items-center">
         
         {/* Left Column - Image */}
@@ -78,6 +90,6 @@ export default function AboutSection() {
           <Timeline items={experienceItems} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
