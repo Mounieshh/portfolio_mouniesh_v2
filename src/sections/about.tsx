@@ -47,16 +47,16 @@ export default function AboutSection() {
       <div className="p-4 md:p-6 lg:p-12 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 items-center">
         
         {/* Left Column - Image */}
-<div className="flex items-center justify-center">
-  <div className="w-[200px] h-[200px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[350px] relative bg-white border border-black rounded-full overflow-hidden">
-    <Image
-      src="/assets/profile.jpg"
-      alt="profile-image"
-      fill
-      className="object-cover scale-200 translate-y-16 md:translate-y-18 translate-x-2"
-    />
-  </div>
-</div>
+        <div className="flex items-center justify-center">
+          <div className="w-[200px] h-[200px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[350px] relative bg-white border border-black rounded-full overflow-hidden">
+            <Image
+              src="/assets/profile.jpg"
+              alt="profile-image"
+              fill
+              className="object-cover scale-200 translate-y-16 md:translate-y-18 translate-x-2"
+            />
+          </div>
+        </div>
 
 
         {/* Right Column - Text Content */}

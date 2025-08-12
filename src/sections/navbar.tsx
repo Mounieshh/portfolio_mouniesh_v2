@@ -27,10 +27,10 @@ export default function Navbar() {
 
   // Variants for toggle button icon container
   // We'll animate rotation and horizontal position (x) to move it left on open
-  const buttonWrapperVariants = {
-    closed: { rotate: 0, x: 0, y: 0, transition: { duration: 0.5 } },
-    open: { rotate: 360, x: -window.innerWidth * 0.8, y: 0, transition: { duration: 0.5 } },
-  }
+  // const buttonWrapperVariants = {
+  //   closed: { rotate: 0, x: 0, y: 0, transition: { duration: 0.5 } },
+  //   open: { rotate: 360, x: -window.innerWidth * 0.8, y: 0, transition: { duration: 0.5 } },
+  // }
 
   // Since window.innerWidth can't be used safely during SSR,
   // we'll use a state to track window width and update on resize

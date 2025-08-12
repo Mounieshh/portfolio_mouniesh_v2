@@ -67,10 +67,10 @@ export const ProjectCard = ({ items = [] }: ProjectProps) => {
                   />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">
-                  {item.header ?? "Untitled Project"} // Fallback for header
+                  {item.header ?? "Untitled Project"}
                 </CardTitle>
                 <CardDescription className="text-sm sm:text-base">
-                  {item.description ?? "No description available"} // Fallback for description
+                  {item.description ?? "No description available"}
                 </CardDescription>
               </CardHeader>
               <CardFooter>
