@@ -12,21 +12,21 @@ import {motion} from 'framer-motion'
 const experienceItems = [
   {
     time: "APR 2025 – JUL 2025",
-    title: "Web Development Intern at Hyperready Technology",
+    title: "Intern at Hyperready Technology",
     description:
       "Worked as a Backend API Developer Intern on a real-time industry-level project called CloseBI. Involved in implementing AI-driven analysis features for SEO optimization.",
     dotColor: "bg-lime-200",
   },
   {
     time: "APR 2024 – SEP 2024",
-    title: "Web Development Intern at The Foundax Company",
+    title: "Intern at The Foundax Company",
     description:
       "Refactored a legacy HTML/CSS site into a modern Next.js app, improving loading speed and maintainability. Implemented responsive design for cross-device UI consistency.",
     dotColor: "bg-pink-200",
   },
   {
     time: "JAN 2024 – FEB 2024",
-    title: "Web Development Intern at Vantage Flow",
+    title: "Intern at Vantage Flow",
     description:
       "Developed a Contact Manager using React.js, HTML, and CSS. Modularized UI into reusable components, reducing future maintenance effort by 40%.",
     dotColor: "bg-green-200",

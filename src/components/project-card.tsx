@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
-import { StaticImageData } from "next/image"; // Updated import
+import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { ArrowRightCircleIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 type ProjectItemProps = {
-  image?: StaticImageData | string; // Updated type
+  image?: StaticImageData | string;
   header?: string;
   description?: string;
   link?: string;
@@ -60,8 +60,8 @@ export const ProjectCard = ({ items = [] }: ProjectProps) => {
               <CardHeader>
                 <div className="relative w-full h-48 sm:h-56 md:h-[50vh] overflow-hidden border-2 border-black rounded-lg mb-5">
                   <Image
-                    src={item.image ?? "/assets/mouniesh-ghibli.jpg"} // Ensure this path is valid
-                    alt={item.header ?? "project-image"} // Improved alt text
+                    src={item.image ?? "/assets/mouniesh-ghibli.jpg"} 
+                    alt={item.header ?? "project-image"}
                     fill
                     className="object-cover"
                   />
