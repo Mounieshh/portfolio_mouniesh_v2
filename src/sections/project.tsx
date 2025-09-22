@@ -36,6 +36,13 @@ const projects = [
     description: "Created an AI prompt-sharing platform allowing users to create, edit, and manage prompts seamlessly.",
     link: "https://github.com/Mounieshh/promptopia_nextjs",
     label: "Github Repo"
+  },
+  {
+    image: "/project/sub-tracker.png",
+    header: "SUBSCRIPTION TRACKER API",
+    description: "Built a production-ready Subscription Tracker API to manage user subscriptions and send automated renewal reminders.",
+    link: "https://github.com/Mounieshh/subscription-tracker-api",
+    label: "Github Repo"
   }
 ];
 
