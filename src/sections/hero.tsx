@@ -79,7 +79,7 @@ export default function HeroSection() {
             </div>
 
             <div className='flex gap-4'>
-                <ButtonC label="Resume" variant="outline" href="https://drive.google.com/file/d/1J3Q2tEfCg6r-Tg4gy218UPX8KPeIV2am/view?usp=drive_link" />
+                <ButtonC label="Resume" variant="outline" href="https://drive.google.com/file/d/1eHxP06J-G6CJW1cjroRwORRIV3h135sX/view?usp=drive_link" />
                 <ButtonC label="See my Works" variant="outline" href="https://github.com/Mounieshh" />
             </div>
             </div>
