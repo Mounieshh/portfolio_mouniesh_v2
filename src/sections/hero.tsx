@@ -1,101 +1,121 @@
-"use client"
+"use client";
 
-import { ButtonC } from '@/components/button-icon'
-import { CircleButton } from '@/components/circle-button'
-import TextPressure from '@/components/text-pressure'
-import TextType from '@/components/text-type'
-import TextTrail from '@/components/trail-text'
-import Image from 'next/image'
-import React from 'react'
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowDownRight } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
-import { motion } from 'framer-motion'
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, ease: EASE, delay },
+});
 
 export default function HeroSection() {
   return (
-    <motion.div 
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.2 }} // triggers when 20% of the section is visible
-    transition={{ duration: 0.6, ease: "easeOut" }}
-    className="flex flex-col min-h-screen bg-[#E3E3FF] border-b-2 border-black">
+    <section
+      aria-label="Introduction"
+      className="min-h-[calc(100svh-57px)] bg-[var(--bg)] border-b border-[var(--border-soft)] flex flex-col"
+    >
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-10 px-6 md:px-12 lg:px-20 py-16 md:py-24 items-center max-w-7xl mx-auto w-full">
 
-      {/* Content Part */}
-      <div className="p-6 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* Left Column */}
-            <div className="flex flex-col gap-6 justify-center order-2 md:order-1">
-                <div>
-                    <CircleButton
-                    label='Hello!'
-                    />
-                </div>
+        {/* Left — text */}
+        <div className="flex flex-col gap-6 order-2 md:order-1">
+          <motion.div {...fadeUp(0)}>
+            <span className="inline-flex items-center gap-1.5 border border-[var(--border-soft)] rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[var(--ink-muted)]">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
+              Available for work
+            </span>
+          </motion.div>
 
-            <div className="font-bold leading-snug">
-                <div className="relative h-[80px] md:h-[100px] cursor-pointer text-black text-3xl sm:text-4xl md:text-5xl">
-                <TextPressure
-                    text="I'm MOUNIESH, "
-                    flex={true}
-                    alpha={false}
-                    stroke={false}
-                    width={true}
-                    weight={true}
-                    italic={true}
-                    textColor="#000000"
-                    strokeColor="#ff0000"
-                    minFontSize={24}
-                />
-                </div>
-                <div className="relative h-[80px] md:h-[100px] cursor-pointer text-black text-3xl sm:text-4xl md:text-5xl">
-                <TextPressure
-                    text="a Software Engineer"
-                    flex={true}
-                    alpha={false}
-                    stroke={false}
-                    width={true}
-                    weight={true}
-                    italic={true}
-                    textColor="#000000"
-                    strokeColor="#ff0000"
-                    minFontSize={24}
-                />
-                </div>
-                {/* <div className='relative h-[80px] md:h-[100px] cursor-pointertext-3xl sm:text-4xl md:text-5xl bg-none'>
+          <motion.h1
+            {...fadeUp(0.08)}
+            className="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.05] tracking-tight text-[var(--ink)]"
+          >
+            I&apos;m Mouniesh,
+            <br />
+            <span className="text-[var(--accent)]">Software</span>
+            <br />
+            Engineer.
+          </motion.h1>
 
-                <TextType 
-                    text={["I'm Mouniesh,","a Software Developer"]}
-                    typingSpeed={75}
-                    pauseDuration={1500}
-                    showCursor={false}
-                    cursorCharacter="|"
-                />
-                <br />
-                
-                </div> */}
-            </div>
+          <motion.p
+            {...fadeUp(0.16)}
+            className="text-[var(--ink-muted)] text-base sm:text-lg leading-relaxed max-w-md"
+          >
+            I build clean, fast web applications — from polished frontends to
+            production-ready APIs. Currently focused on full-stack work with
+            Next.js and Node.js.
+          </motion.p>
 
-            <div className="max-w-xl text-gray-700 text-base sm:text-lg">
-                <p>
-                I’m a passionate software developer who loves building clean and efficient web applications using modern technologies.
-                </p>
-            </div>
+          <motion.div {...fadeUp(0.24)} className="flex flex-wrap gap-3">
+            <a
+              href="https://drive.google.com/file/d/1eHxP06J-G6CJW1cjroRwORRIV3h135sX/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[var(--ink)] text-[var(--bg)] text-sm font-semibold hover:bg-[var(--ink-muted)] transition-colors duration-150"
+            >
+              Resume
+              <ArrowDownRight className="w-4 h-4" aria-hidden="true" />
+            </a>
+            <a
+              href="https://github.com/Mounieshh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md border border-[var(--border)] text-[var(--ink)] text-sm font-semibold hover:bg-[var(--bg-surface)] transition-colors duration-150"
+            >
+              <FaGithub className="w-4 h-4" aria-hidden="true" />
+              GitHub
+            </a>
+          </motion.div>
+        </div>
 
-            <div className='flex gap-4'>
-                <ButtonC label="Resume" variant="outline" href="https://drive.google.com/file/d/1eHxP06J-G6CJW1cjroRwORRIV3h135sX/view?usp=drive_link" />
-                <ButtonC label="See my Works" variant="outline" href="https://github.com/Mounieshh" />
-            </div>
-            </div>
-
-            {/* Right Column */}
-            <div className="flex items-center justify-center order-1 md:order-2">
-            <div className="w-[280px] h-[350px] relative bg-white border border-black rounded-t-full rounded-b-3xl overflow-hidden">
-                <Image
-                src="/assets/mouniesh-ghibli.jpg" 
-                alt="profile-image"
+        {/* Right — photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
+          className="flex items-center justify-center order-1 md:order-2"
+        >
+          <div className="relative w-[260px] h-[320px] sm:w-[300px] sm:h-[370px] md:w-[340px] md:h-[420px]">
+            {/* Offset shadow block */}
+            <div
+              className="absolute inset-0 rounded-t-full rounded-b-2xl translate-x-3 translate-y-3 bg-[var(--accent-soft)] border border-[var(--border-soft)]"
+              aria-hidden="true"
+            />
+            <div className="relative w-full h-full rounded-t-full rounded-b-2xl overflow-hidden border border-[var(--border-soft)] bg-[var(--bg-surface)]">
+              <Image
+                src="/assets/mouniesh-ghibli.jpg"
+                alt="Mouniesh Vijayakumar"
                 fill
+                priority
                 className="object-cover"
-                />
+                sizes="(max-width: 768px) 300px, 340px"
+              />
             </div>
-            </div>
+          </div>
+        </motion.div>
       </div>
-    </motion.div>
-  )
+
+      {/* Scroll hint */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.4 }}
+        className="flex justify-center pb-8"
+        aria-hidden="true"
+      >
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+          className="w-5 h-8 rounded-full border-2 border-[var(--border-soft)] flex items-start justify-center pt-1.5"
+        >
+          <div className="w-1 h-1.5 rounded-full bg-[var(--ink-faint)]" />
+        </motion.div>
+      </motion.div>
+    </section>
+  );
 }

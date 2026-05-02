@@ -1,98 +1,122 @@
-"use client"
+"use client";
 
-import { CircleButton } from '@/components/circle-button';
-import { SkillCard } from '@/components/skill-card';
-import React from 'react';
-
+import React from "react";
+import { motion } from "framer-motion";
 import {
-  FaJava,
-  FaPython,
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaReact,
-  FaNodeJs,
-  FaGitAlt,
-  FaGithub,
-  FaDocker,
-} from 'react-icons/fa';
-
+  FaJava, FaPython, FaHtml5, FaCss3Alt, FaJs,
+  FaReact, FaNodeJs, FaGitAlt, FaGithub, FaDocker,
+} from "react-icons/fa";
 import {
-  SiTailwindcss,
-  SiNextdotjs,
-  SiRedux,
-  SiExpress,
-  SiFirebase,
-  SiMongodb,
-  SiMysql,
-  SiPostgresql,
-  SiFastapi,
-  SiPostman,
-  SiGithubactions,
-  SiJsonwebtokens
-} from 'react-icons/si';
+  SiTailwindcss, SiNextdotjs, SiRedux, SiExpress,
+  SiFirebase, SiMongodb, SiMysql, SiPostgresql,
+  SiFastapi, SiPostman, SiGithubactions, SiJsonwebtokens,
+} from "react-icons/si";
 
-export const skillItems = [
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+const SKILL_GROUPS = [
   {
-    cardName: "Programming Languages",
-    descNames: [
-      { icon: <FaJava />, skillName: "Java" },
-      { icon: <FaPython />, skillName: "Python" }
-    ]
+    label: "Languages",
+    skills: [
+      { icon: <FaJava />, name: "Java" },
+      { icon: <FaPython />, name: "Python" },
+      { icon: <FaJs />, name: "JavaScript" },
+    ],
   },
   {
-    cardName: "Frontend",
-    descNames: [
-      { icon: <FaHtml5 />, skillName: "HTML5" },
-      { icon: <FaCss3Alt />, skillName: "CSS3" },
-      { icon: <FaJs />, skillName: "JavaScript" },
-      { icon: <SiTailwindcss />, skillName: "Tailwind CSS" },
-      { icon: <FaReact />, skillName: "React.js" },
-      { icon: <SiNextdotjs />, skillName: "Next.js" },
-      { icon: <SiRedux />, skillName: "Redux" }
-    ]
+    label: "Frontend",
+    skills: [
+      { icon: <FaHtml5 />, name: "HTML5" },
+      { icon: <FaCss3Alt />, name: "CSS3" },
+      { icon: <SiTailwindcss />, name: "Tailwind" },
+      { icon: <FaReact />, name: "React" },
+      { icon: <SiNextdotjs />, name: "Next.js" },
+      { icon: <SiRedux />, name: "Redux" },
+    ],
   },
   {
-    cardName: "Backend",
-    descNames: [
-      { icon: <FaNodeJs />, skillName: "Node.js" },
-      { icon: <SiExpress />, skillName: "Express.js" },
-      { icon: <SiFastapi />, skillName: "FastAPI" },
-      { icon: <SiFirebase />, skillName: "Firebase" },
-      { icon: <SiJsonwebtokens />, skillName: "JWT" },
-      { icon: <SiPostman />, skillName: "REST APIs" }
-    ]
+    label: "Backend",
+    skills: [
+      { icon: <FaNodeJs />, name: "Node.js" },
+      { icon: <SiExpress />, name: "Express" },
+      { icon: <SiFastapi />, name: "FastAPI" },
+      { icon: <SiFirebase />, name: "Firebase" },
+      { icon: <SiJsonwebtokens />, name: "JWT" },
+      { icon: <SiPostman />, name: "REST APIs" },
+    ],
   },
   {
-    cardName: "Databases",
-    descNames: [
-      { icon: <SiMongodb />, skillName: "MongoDB" },
-      { icon: <SiMysql />, skillName: "MySQL" },
-      { icon: <SiPostgresql />, skillName: "PostgreSQL" }
-    ]
+    label: "Databases",
+    skills: [
+      { icon: <SiMongodb />, name: "MongoDB" },
+      { icon: <SiMysql />, name: "MySQL" },
+      { icon: <SiPostgresql />, name: "PostgreSQL" },
+    ],
   },
   {
-    cardName: "DevOps",
-    descNames: [
-      { icon: <FaDocker />, skillName: "Docker" },
-      { icon: <FaGitAlt />, skillName: "Git" },
-      { icon: <FaGithub />, skillName: "GitHub" },
-      { icon: <SiGithubactions />, skillName: "GitHub Actions" }
-    ]
-}
+    label: "DevOps",
+    skills: [
+      { icon: <FaDocker />, name: "Docker" },
+      { icon: <FaGitAlt />, name: "Git" },
+      { icon: <FaGithub />, name: "GitHub" },
+      { icon: <SiGithubactions />, name: "Actions" },
+    ],
+  },
 ];
 
 export default function SkillsSection() {
   return (
-    <div className="min-h-screen border-b-2 border-black">
-      <div className="p-4 md:p-6 lg:p-12">
-        <div className="flex justify-center items-center mb-6">
-          <CircleButton label="Skills" />
-        </div>
-        <div>
-          <SkillCard items={skillItems} />
+    <section
+      aria-label="Skills"
+      className="border-b border-[var(--border-soft)] bg-[var(--bg-surface)]"
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: EASE }}
+          className="mb-12"
+        >
+          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--ink-faint)] mb-3">
+            Tech Stack
+          </p>
+          <h2 className="text-3xl md:text-4xl font-black text-[var(--ink)]">
+            What I work with
+          </h2>
+        </motion.div>
+
+        <div className="flex flex-col gap-10">
+          {SKILL_GROUPS.map((group, gi) => (
+            <motion.div
+              key={group.label}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.45,
+                ease: EASE,
+                delay: gi * 0.06,
+              }}
+            >
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--ink-faint)] mb-4">
+                {group.label}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {group.skills.map(({ icon, name }) => (
+                  <span
+                    key={name}
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-[var(--border-soft)] bg-[var(--bg)] text-sm font-medium text-[var(--ink-muted)] hover:text-[var(--ink)] hover:border-[var(--border)] transition-colors duration-150"
+                  >
+                    <span className="text-base" aria-hidden="true">{icon}</span>
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
