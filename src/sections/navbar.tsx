@@ -58,7 +58,7 @@ export default function Navbar() {
           className="text-[var(--ink)] font-black text-lg tracking-tight leading-none"
           aria-label="Mouniesh — home"
         >
-          MK
+          MV
         </Link>
 
         {/* Desktop nav */}

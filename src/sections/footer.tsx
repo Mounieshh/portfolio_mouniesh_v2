@@ -35,7 +35,7 @@ export default function FooterSection() {
 
         {/* Brand */}
         <div className="flex flex-col gap-2">
-          <span className="font-black text-xl tracking-tight">MK</span>
+          <span className="font-black text-xl tracking-tight">MV</span>
           <p className="text-sm text-[var(--bg)]/50">
             &copy; {new Date().getFullYear()} Mouniesh Vijayakumar
           </p>

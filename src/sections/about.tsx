@@ -55,37 +55,30 @@ export default function AboutSection() {
         {/* Bio row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center mb-20 md:mb-28">
 
-          {/* Photo */}
+          {/* Photo — transparent SVG, blends with bg */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.55, ease: EASE }}
-            className="flex justify-center"
+            transition={{ duration: 0.6, ease: EASE }}
+            className="flex justify-center md:justify-start"
           >
-            <div className="relative w-56 h-56 md:w-72 md:h-72">
-              <div
-                className="absolute inset-0 rounded-full translate-x-3 translate-y-3 bg-[var(--accent-soft)] border border-[var(--border-soft)]"
-                aria-hidden="true"
-              />
-              <div className="relative w-full h-full rounded-full overflow-hidden border border-[var(--border-soft)] bg-[var(--bg-surface)]">
-                <Image
-                  src="/assets/profile.jpg"
-                  alt="Mouniesh Vijayakumar"
-                  fill
-                  className="object-cover scale-110 translate-y-4"
-                  sizes="(max-width: 768px) 224px, 288px"
-                />
-              </div>
-            </div>
+            <Image
+              src="/assets/actual_about_photo.svg"
+              alt="Mouniesh Vijayakumar"
+              width={1023}
+              height={1537}
+              className="w-48 sm:w-56 md:w-64 lg:w-72 h-auto drop-shadow-sm"
+              priority
+            />
           </motion.div>
 
           {/* Text */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, ease: EASE, delay: 0.08 }}
+            transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
             className="flex flex-col gap-5"
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-[var(--ink-faint)]">
@@ -100,15 +93,15 @@ export default function AboutSection() {
               problems with clean, scalable code and love exploring new
               technologies.
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3 mt-1">
               {SOCIAL.map(({ icon, label, href }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={label}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-[var(--border-soft)] text-sm font-semibold text-[var(--ink-muted)] hover:text-[var(--ink)] hover:border-[var(--border)] transition-colors duration-150"
+                  aria-label={`${label} profile`}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-[var(--border-soft)] text-sm font-semibold text-[var(--ink-muted)] hover:text-[var(--ink)] hover:border-[var(--border)] hover:bg-[var(--bg-surface)] transition-all duration-150"
                 >
                   {icon}
                   {label}
